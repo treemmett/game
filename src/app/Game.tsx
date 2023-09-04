@@ -8,8 +8,10 @@ export const Game: FC = () => {
     const ctx = canvas.current?.getContext('2d');
     if (!ctx || !canvas.current) return;
 
-    canvas.current.width = window.innerWidth;
-    canvas.current.height = window.innerHeight;
+    const devicePixelRatio = window.devicePixelRatio || 1;
+
+    canvas.current.width = window.innerWidth * devicePixelRatio;
+    canvas.current.height = window.innerHeight * devicePixelRatio;
 
     ctx.fillStyle = 'rgb(200, 0, 0)';
     ctx.fillRect(10, 10, 50, 50);
