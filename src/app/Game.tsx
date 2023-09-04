@@ -6,7 +6,10 @@ export const Game: FC = () => {
   const canvas = useRef<HTMLCanvasElement>(null);
   useEffect(() => {
     const ctx = canvas.current?.getContext('2d');
-    if (!ctx) return;
+    if (!ctx || !canvas.current) return;
+
+    canvas.current.width = window.innerWidth;
+    canvas.current.height = window.innerHeight;
 
     ctx.fillStyle = 'rgb(200, 0, 0)';
     ctx.fillRect(10, 10, 50, 50);
